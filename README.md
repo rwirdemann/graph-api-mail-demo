@@ -17,4 +17,15 @@ FOLDER_ID=
 USER_ID=
 ```
 
-MailboxDemo App starten.
+## Build and Run
+
+```
+mvn clean install
+java -jar target/graph-api-mail-demo-1.0.0.jar
+```
+
+Oder MailboxDemo in der IDE starten.
+
+## Beispieldaten
+
+In der Datei [mail.json](docs/mail.json) findet sich ein Beispiel für das von Exchange gelieferte Mail-Format.

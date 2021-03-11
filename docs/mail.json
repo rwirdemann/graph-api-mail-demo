@@ -1,0 +1,59 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('591dfef2-9a07-48db-8ffe-4cc4e18af791')/mailFolders('AAMkADljYTg5ZDAxLWFhN2YtNDgxMi05MmU4LTQ1YjQ1ZGQ0NzdmNQAuAAAAAADRfUy7cPAQRr4pRB9mHHNzAQDYo6CezcgySaauGw-KNAd0AACIxhCMAAA%3D')/messages",
+  "value": [
+    {
+      "@odata.etag": "W/\"CQAAABYAAADYo6CezcgySaauGw/KNAd0AACInzVf\"",
+      "id": "AAMkADljYTg5ZDAxLWFhN2YtNDgxMi05MmU4LTQ1YjQ1ZGQ0NzdmNQBGAAAAAADRfUy7cPAQRr4pRB9mHHNzBwDYo6CezcgySaauGw-KNAd0AACIxhCMAADYo6CezcgySaauGw-KNAd0AACIxuaVAAA=",
+      "createdDateTime": "2021-03-11T10:39:42Z",
+      "lastModifiedDateTime": "2021-03-11T12:56:59Z",
+      "changeKey": "CQAAABYAAADYo6CezcgySaauGw/KNAd0AACInzVf",
+      "categories": [],
+      "receivedDateTime": "2021-03-11T10:39:42Z",
+      "sentDateTime": "2021-03-11T10:39:36Z",
+      "hasAttachments": false,
+      "internetMessageId": "<90E84C12-9F52-4F02-9DE2-BC43E39519CE@mailbox.org>",
+      "subject": "Hello Subject",
+      "bodyPreview": "Hello Body",
+      "importance": "normal",
+      "parentFolderId": "AAMkADljYTg5ZDAxLWFhN2YtNDgxMi05MmU4LTQ1YjQ1ZGQ0NzdmNQAuAAAAAADRfUy7cPAQRr4pRB9mHHNzAQDYo6CezcgySaauGw-KNAd0AACIxhCMAAA=",
+      "conversationId": "AAQkADljYTg5ZDAxLWFhN2YtNDgxMi05MmU4LTQ1YjQ1ZGQ0NzdmNQAQACbx-MfEoSlMkwKEOlMlwvw=",
+      "conversationIndex": "AQHXFmLYJvH8x8ShKUyTAoQ6UyXC/A==",
+      "isDeliveryReceiptRequested": null,
+      "isReadReceiptRequested": false,
+      "isRead": true,
+      "isDraft": false,
+      "webLink": "https://outlook.office365.com/owa/?ItemID=AAMkADljYTg5ZDAxLWFhN2YtNDgxMi05MmU4LTQ1YjQ1ZGQ0NzdmNQBGAAAAAADRfUy7cPAQRr4pRB9mHHNzBwDYo6CezcgySaauGw%2FKNAd0AACIxhCMAADYo6CezcgySaauGw%2FKNAd0AACIxuaVAAA%3D&exvsurl=1&viewmodel=ReadMessageItem",
+      "inferenceClassification": "focused",
+      "body": {
+        "contentType": "text",
+        "content": "Hello Body\r\n"
+      },
+      "sender": {
+        "emailAddress": {
+          "name": "Ralf Wirdemann",
+          "address": "ralf.wirdemann@mailbox.org"
+        }
+      },
+      "from": {
+        "emailAddress": {
+          "name": "Ralf Wirdemann",
+          "address": "ralf.wirdemann@mailbox.org"
+        }
+      },
+      "toRecipients": [
+        {
+          "emailAddress": {
+            "name": "ralf.wirdemann",
+            "address": "ralf.wirdemann@codekeepers.de"
+          }
+        }
+      ],
+      "ccRecipients": [],
+      "bccRecipients": [],
+      "replyTo": [],
+      "flag": {
+        "flagStatus": "notFlagged"
+      }
+    }
+  ]
+}

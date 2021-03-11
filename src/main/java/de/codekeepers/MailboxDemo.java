@@ -35,12 +35,11 @@ class MailboxDemo {
             IAuthenticationResult result = getAccessTokenByClientCredentialGrant();
             List<Folder> folders = getFolders(userId, result.accessToken());
             for (Folder f : folders) {
-                System.out.println(f.id + ": " + f.displayName);
+                //System.out.println(f);
             }
-            List<Mail> mails = getMails("591dfef2-9a07-48db-8ffe-4cc4e18af791", folderId, result.accessToken());
+            List<Mail> mails = getMails(userId, folderId, result.accessToken());
             for (Mail m : mails) {
-                System.out.println(m.subject);
-                System.out.println(m.body.content);
+                System.out.println(m);
             }
 
         } catch (Exception ex) {
