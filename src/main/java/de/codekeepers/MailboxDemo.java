@@ -4,15 +4,10 @@ import com.microsoft.aad.msal4j.ClientCredentialFactory;
 import com.microsoft.aad.msal4j.ClientCredentialParameters;
 import com.microsoft.aad.msal4j.ConfidentialClientApplication;
 import com.microsoft.aad.msal4j.IAuthenticationResult;
-import com.nimbusds.oauth2.sdk.http.HTTPResponse;
-import de.codekeepers.Folder;
-import de.codekeepers.Mail;
+import de.codekeepers.domain.Folder;
+import de.codekeepers.domain.Mail;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
@@ -29,13 +24,13 @@ class MailboxDemo {
     private static String folderId;
     private static String userId;
 
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws Exception {
         setUpSampleData();
         try {
             IAuthenticationResult result = getAccessTokenByClientCredentialGrant();
             List<Folder> folders = getFolders(userId, result.accessToken());
             for (Folder f : folders) {
-                //System.out.println(f);
+                System.out.println(f);
             }
             List<Mail> mails = getMails(userId, folderId, result.accessToken());
             for (Mail m : mails) {
@@ -67,7 +62,6 @@ class MailboxDemo {
     }
 
     private static void setUpSampleData() throws IOException {
-        // Load properties file and set properties used throughout the sample
         Properties properties = new Properties();
         properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties"));
         authority = properties.getProperty("AUTHORITY");

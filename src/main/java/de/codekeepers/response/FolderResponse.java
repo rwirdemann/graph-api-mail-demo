@@ -1,6 +1,7 @@
-package de.codekeepers;
+package de.codekeepers.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import de.codekeepers.domain.Folder;
 
 import java.util.List;
 

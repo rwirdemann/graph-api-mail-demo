@@ -2,6 +2,10 @@ package de.codekeepers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nimbusds.oauth2.sdk.http.HTTPResponse;
+import de.codekeepers.domain.Folder;
+import de.codekeepers.domain.Mail;
+import de.codekeepers.response.FolderResponse;
+import de.codekeepers.response.MailResponse;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,18 +22,13 @@ public class Mailbox {
         HttpURLConnection conn = getConnection(accessToken, new URL(String.format("%s/users/%s/mailFolders", BASE_URL, userId)));
         if (conn.getResponseCode() == HTTPResponse.SC_OK) {
             try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
-                String inputLine;
-                StringBuilder json = new StringBuilder();
-                while ((inputLine = in.readLine()) != null) {
-                    json.append(inputLine);
-                }
+                String json = readJsonResponse(in);
                 ObjectMapper objectMapper = new ObjectMapper();
-                FolderResponse response = objectMapper.readValue(json.toString(), FolderResponse.class);
+                FolderResponse response = objectMapper.readValue(json, FolderResponse.class);
                 return response.value;
             }
         }
-
-        System.out.println(String.format("Connection returned HTTP code: %s with message: %s", conn.getResponseCode(), conn.getResponseMessage()));
+        System.out.printf("Connection returned HTTP code: %s with message: %s%n", conn.getResponseCode(), conn.getResponseMessage());
         return Collections.emptyList();
     }
 
@@ -37,16 +36,13 @@ public class Mailbox {
         HttpURLConnection conn = getConnection(accessToken, new URL(String.format("%s/users/%s/mailFolders/%s/messages", BASE_URL, userId, folderId)));
         if (conn.getResponseCode() == HTTPResponse.SC_OK) {
             try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
-                String inputLine;
-                StringBuilder json = new StringBuilder();
-                while ((inputLine = in.readLine()) != null) {
-                    json.append(inputLine);
-                }
+                String json = readJsonResponse(in);
                 ObjectMapper objectMapper = new ObjectMapper();
-                MailResponse response = objectMapper.readValue(json.toString(), MailResponse.class);
+                MailResponse response = objectMapper.readValue(json, MailResponse.class);
                 return response.value;
             }
         }
+        System.out.printf("Connection returned HTTP code: %s with message: %s%n", conn.getResponseCode(), conn.getResponseMessage());
         return Collections.emptyList();
     }
 
@@ -56,5 +52,14 @@ public class Mailbox {
         conn.setRequestProperty("Authorization", "Bearer " + accessToken);
         conn.setRequestProperty("Accept", "application/json");
         return conn;
+    }
+
+    private static String readJsonResponse(BufferedReader in) throws IOException {
+        String inputLine;
+        StringBuilder json = new StringBuilder();
+        while ((inputLine = in.readLine()) != null) {
+            json.append(inputLine);
+        }
+        return json.toString();
     }
 }

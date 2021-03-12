@@ -1,10 +1,9 @@
-package de.codekeepers;
+package de.codekeepers.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.List;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MailResponse {
-    public List<Mail> value;
+public class Body {
+    public String contentType;
+    public String content;
 }

@@ -1,4 +1,4 @@
-package de.codekeepers;
+package de.codekeepers.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -12,8 +12,8 @@ public class Mail {
     public Body body;
     public Contact sender;
     public Contact from;
-    public Contact []toRecipients;
-    public Contact []ccRecipients;
+    public Contact[] toRecipients;
+    public Contact[] ccRecipients;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-d'T'hh:mm:ss'Z'")
     public Date sentDateTime;
